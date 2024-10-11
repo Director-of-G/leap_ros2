@@ -11,10 +11,14 @@ find_package(rosidl_default_generators REQUIRED)
 ## Install ##
 #############
 
+# Install Python modules
+ament_python_install_package(${PROJECT_NAME})
+
 # Install Python scripts in the scripts directory
 file(GLOB SCRIPT_FILES scripts/*.py)
 install(PROGRAMS ${SCRIPT_FILES}
-  DESTINATION share/${PROJECT_NAME}
+  # DESTINATION share/${PROJECT_NAME}
+  DESTINATION lib/${PROJECT_NAME}
 )
 
 # Install all Python scripts in the launch directory (if any)

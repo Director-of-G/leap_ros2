@@ -149,7 +149,7 @@ class DynamixelReaderNode(Node):
             self.sync_write(self.motors, np.ones(len(self.motors)) * self.kD, self.ADDR_D_GAIN, 2)  # D gain damping
             self.sync_write([0, 4, 8], np.ones(3) * (self.kD * 0.75), self.ADDR_D_GAIN, 2)  # D gain damping for side to side should be a bit less
             self.sync_write(self.motors, np.ones(len(self.motors)) * self.curr_lim, self.ADDR_CURRENT_LIMIT, 2)  # Max current limit
-            self.sync_write(self.motors, self.degrees_to_ticks_list(self.curr_pos), self.ADDR_GOAL_POSITION, 4)  # Set initial positions
+            # self.sync_write(self.motors, self.degrees_to_ticks_list(self.curr_pos), self.ADDR_GOAL_POSITION, 4)  # Set initial positions
 
         except Exception as e:
             self.get_logger().error(f"Error initializing gains: {str(e)}")
